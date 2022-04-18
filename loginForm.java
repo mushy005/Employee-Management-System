@@ -1,4 +1,11 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -88,6 +95,11 @@ public class loginForm extends javax.swing.JFrame {
         ButtonCancel.setBounds(140, 180, 70, 23);
 
         ButtonLogin.setText("Login");
+        ButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(ButtonLogin);
         ButtonLogin.setBounds(240, 180, 60, 23);
 
@@ -191,6 +203,30 @@ public class loginForm extends javax.swing.JFrame {
         supf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }                                    
+
+    private void ButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        Connection con = myConnection.getConnection();
+        PreparedStatement ps;
+        ResultSet rs;
+        
+        try{
+        ps = con.prepareStatement("SELECT * FROM `user` WHERE `username` = ? AND `pass` = ?");
+        ps.setString(1, TextFieldUsername.getText());
+        ps.setString(2, String.valueOf(jPasswordField1.getPassword()));
+        rs = ps.executeQuery();
+        
+        if(rs.next()){
+        JOptionPane.showMessageDialog(null,"Logged");
+        }else{
+        JOptionPane.showMessageDialog(null,"Login Error");
+        
+        
+        }
+        }catch (SQLException ex){
+        Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }                                           
 
     /**
      * @param args the command line arguments
