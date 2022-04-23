@@ -36,19 +36,15 @@ public class loginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         TextFieldUsername = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        ButtonCancel = new javax.swing.JButton();
         ButtonLogin = new javax.swing.JButton();
         NewUser = new javax.swing.JLabel();
-        loginMin = new javax.swing.JLabel();
-        loginClose = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        loginClose = new javax.swing.JLabel();
+        loginMin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -56,64 +52,66 @@ public class loginForm extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel3.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel3.setMinimumSize(new java.awt.Dimension(500, 350));
-        jPanel3.setPreferredSize(new java.awt.Dimension(500, 350));
-
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 0, true));
         jPanel1.setMaximumSize(new java.awt.Dimension(500, 350));
         jPanel1.setMinimumSize(new java.awt.Dimension(500, 350));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Password:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 130, 90, 17);
+        TextFieldUsername.setText("Username");
+        TextFieldUsername.setToolTipText("");
+        TextFieldUsername.setName(""); // NOI18N
+        jPanel1.add(TextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 180, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Username:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 90, 17);
-        jPanel1.add(TextFieldUsername);
-        TextFieldUsername.setBounds(130, 80, 180, 30);
-        jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(130, 130, 180, 30);
+        jPasswordField1.setText("Password");
+        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 180, 30));
 
-        jCheckBox1.setText("Show Pass");
-        jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(330, 130, 90, 30);
-
-        ButtonCancel.setText("Cancel");
-        ButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ButtonCancel);
-        ButtonCancel.setBounds(140, 180, 70, 23);
-
+        ButtonLogin.setBackground(new java.awt.Color(255, 204, 204));
         ButtonLogin.setText("Login");
+        ButtonLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 153, 255), 1, true));
+        ButtonLogin.setBorderPainted(false);
+        ButtonLogin.setFocusPainted(false);
         ButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonLogin);
-        ButtonLogin.setBounds(240, 180, 60, 23);
+        jPanel1.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 60, 23));
 
-        NewUser.setText("New User? Click here");
+        NewUser.setBackground(new java.awt.Color(255, 255, 255));
+        NewUser.setFont(new java.awt.Font("AvertaStd-Light", 1, 12)); // NOI18N
+        NewUser.setForeground(new java.awt.Color(255, 255, 255));
+        NewUser.setText("Sign Up Here.");
         NewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NewUserMouseClicked(evt);
             }
         });
-        jPanel1.add(NewUser);
-        NewUser.setBounds(180, 230, 130, 14);
+        jPanel1.add(NewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 100, -1));
+
+        jLabel3.setFont(new java.awt.Font("AvertaStd-Regular", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Welcome");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ordonez\\Desktop\\logo90.png")); // NOI18N
+        jLabel4.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 100, 90));
+
+        loginClose.setFont(new java.awt.Font("Orbitron", 1, 24)); // NOI18N
+        loginClose.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ordonez\\Desktop\\icon40.png")); // NOI18N
+        loginClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginCloseMouseClicked(evt);
+            }
+        });
+        jPanel1.add(loginClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 30, 30));
 
         loginMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        loginMin.setForeground(new java.awt.Color(255, 255, 255));
         loginMin.setText("-");
         loginMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginMin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,60 +119,21 @@ public class loginForm extends javax.swing.JFrame {
                 loginMinMouseClicked(evt);
             }
         });
-
-        loginClose.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginClose.setText("x");
-        loginClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginCloseMouseClicked(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Login Form");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginMin)
-                .addGap(18, 18, 18)
-                .addComponent(loginClose)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginClose)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(loginMin)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4, Short.MAX_VALUE))
-        );
+        jPanel1.add(loginMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -189,10 +148,6 @@ public class loginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }                                       
-
-    private void ButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
 
     private void NewUserMouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
@@ -264,16 +219,12 @@ public class loginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonLogin;
     private javax.swing.JLabel NewUser;
     private javax.swing.JTextField TextFieldUsername;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel loginClose;
     private javax.swing.JLabel loginMin;
