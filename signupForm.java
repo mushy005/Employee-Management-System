@@ -416,7 +416,6 @@ public class signupForm extends javax.swing.JFrame {
         jButtonBrowseImage.setBounds(160, 510, 90, 30);
 
         loginClose2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginClose2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ordonez\\Desktop\\icon40.png")); // NOI18N
         loginClose2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginClose2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -424,7 +423,7 @@ public class signupForm extends javax.swing.JFrame {
             }
         });
         jPanel7.add(loginClose2);
-        loginClose2.setBounds(320, 30, 20, 20);
+        loginClose2.setBounds(320, 30, 0, 0);
 
         loginMin2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         loginMin2.setForeground(new java.awt.Color(255, 255, 255));
@@ -436,7 +435,7 @@ public class signupForm extends javax.swing.JFrame {
             }
         });
         jPanel7.add(loginMin2);
-        loginMin2.setBounds(300, 20, 10, 29);
+        loginMin2.setBounds(340, 20, 10, 29);
 
         jLabel7.setFont(new java.awt.Font("Swansea", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -449,9 +448,8 @@ public class signupForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
