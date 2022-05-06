@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -15,7 +14,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,7 +30,8 @@ public class signupForm extends javax.swing.JFrame {
     /**
      * Creates new form signupForm
      */
-    String imagePath = null;
+    String imagePth = null; 
+    
     public signupForm() {
         initComponents();
     }
@@ -46,609 +45,338 @@ public class signupForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        jLabelClose = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        TextFieldUsername = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        ButtonCancel = new javax.swing.JButton();
-        ButtonLogin = new javax.swing.JButton();
-        NewUser = new javax.swing.JLabel();
-        loginMin = new javax.swing.JLabel();
-        loginClose = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabelClose1 = new javax.swing.JLabel();
+        jLabelMin = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        TextFieldUsername1 = new javax.swing.JTextField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        ButtonCancel1 = new javax.swing.JButton();
-        ButtonLogin1 = new javax.swing.JButton();
-        NewUser1 = new javax.swing.JLabel();
-        loginMin1 = new javax.swing.JLabel();
-        loginClose1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        FieldUsername = new javax.swing.JTextField();
-        FieldPassword1 = new javax.swing.JPasswordField();
-        ButtonCancel2 = new javax.swing.JButton();
-        ButtonCreate = new javax.swing.JButton();
-        NewUser2 = new javax.swing.JLabel();
-        FieldPassword2 = new javax.swing.JPasswordField();
-        FieldFirstname = new javax.swing.JTextField();
-        FieldLastname = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldFName = new javax.swing.JTextField();
+        jTextFieldLName = new javax.swing.JTextField();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jLabelCreateAccount = new javax.swing.JLabel();
         jLabelPic = new javax.swing.JLabel();
         jButtonBrowseImage = new javax.swing.JButton();
-        loginClose2 = new javax.swing.JLabel();
-        loginMin2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jButtonCreate = new javax.swing.JButton();
+        jButtonCancel = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel3.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel3.setMinimumSize(new java.awt.Dimension(500, 350));
-
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel1.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel1.setMinimumSize(new java.awt.Dimension(500, 350));
-        jPanel1.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Password:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 130, 90, 17);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Username:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 90, 17);
-        jPanel1.add(TextFieldUsername);
-        TextFieldUsername.setBounds(130, 80, 180, 30);
-        jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(130, 130, 180, 30);
-
-        jCheckBox1.setText("Show Pass");
-        jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(330, 130, 90, 30);
-
-        ButtonCancel.setText("Cancel");
-        ButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ButtonCancel);
-        ButtonCancel.setBounds(140, 180, 70, 23);
-
-        ButtonLogin.setText("Login");
-        jPanel1.add(ButtonLogin);
-        ButtonLogin.setBounds(240, 180, 60, 23);
-
-        NewUser.setText("New User? Click here");
-        NewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NewUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelClose.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelClose.setText("x");
+        jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NewUserMouseClicked(evt);
+                jLabelCloseMouseClicked(evt);
             }
         });
-        jPanel1.add(NewUser);
-        NewUser.setBounds(180, 230, 130, 14);
-
-        loginMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginMin.setText("-");
-        loginMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginMin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMinMouseClicked(evt);
-            }
-        });
-
-        loginClose.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginClose.setText("x");
-        loginClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginCloseMouseClicked(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Login Form");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginMin)
-                .addGap(18, 18, 18)
-                .addComponent(loginClose)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginClose)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(loginMin)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel4.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel4.setMinimumSize(new java.awt.Dimension(500, 350));
-
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel2.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel2.setMinimumSize(new java.awt.Dimension(500, 350));
-        jPanel2.setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Password:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 130, 90, 17);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Username:");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(30, 90, 90, 17);
-        jPanel2.add(TextFieldUsername1);
-        TextFieldUsername1.setBounds(130, 80, 180, 30);
-        jPanel2.add(jPasswordField2);
-        jPasswordField2.setBounds(130, 130, 180, 30);
-
-        jCheckBox2.setText("Show Pass");
-        jPanel2.add(jCheckBox2);
-        jCheckBox2.setBounds(330, 130, 90, 30);
-
-        ButtonCancel1.setText("Cancel");
-        ButtonCancel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancel1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(ButtonCancel1);
-        ButtonCancel1.setBounds(140, 180, 70, 23);
-
-        ButtonLogin1.setText("Login");
-        jPanel2.add(ButtonLogin1);
-        ButtonLogin1.setBounds(240, 180, 60, 23);
-
-        NewUser1.setText("New User? Click here");
-        NewUser1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NewUser1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NewUser1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(NewUser1);
-        NewUser1.setBounds(180, 230, 130, 14);
-
-        loginMin1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginMin1.setText("-");
-        loginMin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginMin1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMin1MouseClicked(evt);
-            }
-        });
-
-        loginClose1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginClose1.setText("x");
-        loginClose1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginClose1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginClose1MouseClicked(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("Login Form");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginMin1)
-                .addGap(18, 18, 18)
-                .addComponent(loginClose1)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginClose1)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(loginMin1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4, Short.MAX_VALUE))
-        );
-
-        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel6.setMinimumSize(new java.awt.Dimension(500, 350));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel7.setBackground(new java.awt.Color(102, 153, 255));
-        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-        jPanel7.setMaximumSize(new java.awt.Dimension(500, 350));
-        jPanel7.setMinimumSize(new java.awt.Dimension(500, 350));
-        jPanel7.setLayout(null);
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
-        jLabel9.setFont(new java.awt.Font("Swansea", 0, 12)); // NOI18N
-        jLabel9.setText("Picture:");
-        jPanel7.add(jLabel9);
-        jLabel9.setBounds(40, 420, 90, 40);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ordonez\\Desktop\\Java_Contact_App\\images\\logo.png")); // NOI18N
 
-        FieldUsername.setFont(new java.awt.Font("Swansea", 2, 10)); // NOI18N
-        FieldUsername.setText("Username");
-        jPanel7.add(FieldUsername);
-        FieldUsername.setBounds(80, 210, 240, 40);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel1)
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jLabel1)
+                .addContainerGap(267, Short.MAX_VALUE))
+        );
 
-        FieldPassword1.setFont(new java.awt.Font("Swansea", 2, 10)); // NOI18N
-        FieldPassword1.setText("Password");
-        FieldPassword1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldPassword1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(FieldPassword1);
-        FieldPassword1.setBounds(80, 270, 240, 40);
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ButtonCancel2.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonCancel2.setFont(new java.awt.Font("Swansea", 0, 14)); // NOI18N
-        ButtonCancel2.setText("Cancel");
-        ButtonCancel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-        ButtonCancel2.setBorderPainted(false);
-        ButtonCancel2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancel2ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(ButtonCancel2);
-        ButtonCancel2.setBounds(90, 560, 90, 30);
-
-        ButtonCreate.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonCreate.setFont(new java.awt.Font("Swansea", 0, 14)); // NOI18N
-        ButtonCreate.setText("Create");
-        ButtonCreate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-        ButtonCreate.setBorderPainted(false);
-        ButtonCreate.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelClose1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelClose1.setText("x");
+        jLabelClose1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ButtonCreateMouseClicked(evt);
+                jLabelClose1MouseClicked(evt);
             }
         });
-        ButtonCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCreateActionPerformed(evt);
-            }
-        });
-        jPanel7.add(ButtonCreate);
-        ButtonCreate.setBounds(220, 560, 90, 30);
+        jPanel2.add(jLabelClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
-        NewUser2.setFont(new java.awt.Font("Swansea", 0, 12)); // NOI18N
-        NewUser2.setText("Already have an Account? Login here");
-        NewUser2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NewUser2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelMin.setText("-");
+        jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NewUser2MouseClicked(evt);
+                jLabelMinMouseClicked(evt);
             }
         });
-        jPanel7.add(NewUser2);
-        NewUser2.setBounds(90, 610, 230, 30);
+        jPanel2.add(jLabelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 20, -1));
 
-        FieldPassword2.setText("Password");
-        FieldPassword2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldPassword2ActionPerformed(evt);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("SIGN UP");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 23, -1, -1));
+
+        jLabel3.setText("First Name:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        jLabel4.setText("Last Name:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 125, -1, -1));
+
+        jLabel5.setText("Username:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 170, -1, -1));
+
+        jLabel6.setText("Password:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 215, -1, -1));
+
+        jLabel7.setText("Retype Password:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jLabel8.setText("Picture:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+        jPanel2.add(jTextFieldFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 183, -1));
+        jPanel2.add(jTextFieldLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 183, -1));
+        jPanel2.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 183, -1));
+
+        jLabelCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCreateAccount.setText("Login Here");
+        jLabelCreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCreateAccountMouseClicked(evt);
             }
         });
-        jPanel7.add(FieldPassword2);
-        FieldPassword2.setBounds(80, 320, 240, 40);
-
-        FieldFirstname.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        FieldFirstname.setText("First Name");
-        FieldFirstname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldFirstnameActionPerformed(evt);
-            }
-        });
-        jPanel7.add(FieldFirstname);
-        FieldFirstname.setBounds(80, 90, 240, 40);
-
-        FieldLastname.setFont(new java.awt.Font("Swansea", 2, 10)); // NOI18N
-        FieldLastname.setText("Last Name");
-        jPanel7.add(FieldLastname);
-        FieldLastname.setBounds(80, 150, 240, 40);
+        jPanel2.add(jLabelCreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, -1));
 
         jLabelPic.setOpaque(true);
-        jPanel7.add(jLabelPic);
-        jLabelPic.setBounds(110, 380, 180, 120);
+        jPanel2.add(jLabelPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 150, 152));
 
-        jButtonBrowseImage.setFont(new java.awt.Font("Swansea", 1, 12)); // NOI18N
         jButtonBrowseImage.setText("Browse");
         jButtonBrowseImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBrowseImageActionPerformed(evt);
             }
         });
-        jPanel7.add(jButtonBrowseImage);
-        jButtonBrowseImage.setBounds(160, 510, 90, 30);
+        jPanel2.add(jButtonBrowseImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
 
-        loginClose2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginClose2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginClose2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginClose2MouseClicked(evt);
+        jButtonCreate.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCreate.setText("Create");
+        jButtonCreate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jButtonCreate.setBorderPainted(false);
+        jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateActionPerformed(evt);
             }
         });
-        jPanel7.add(loginClose2);
-        loginClose2.setBounds(320, 30, 0, 0);
+        jPanel2.add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 80, 30));
 
-        loginMin2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        loginMin2.setForeground(new java.awt.Color(255, 255, 255));
-        loginMin2.setText("-");
-        loginMin2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginMin2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMin2MouseClicked(evt);
+        jButtonCancel.setText("Cancel");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
             }
         });
-        jPanel7.add(loginMin2);
-        loginMin2.setBounds(340, 20, 10, 29);
-
-        jLabel7.setFont(new java.awt.Font("Swansea", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Sign Up");
-        jPanel7.add(jLabel7);
-        jLabel7.setBounds(20, 20, 190, 40);
+        jPanel2.add(jButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, 30));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, -1));
+        jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void ButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {                                         
         // TODO add your handling code here:
-    }                                            
-
-    private void NewUserMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        // TODO add your handling code here:
-        signupForm supf = new signupForm();
-        supf.setVisible(true);
-        supf.pack();
-        supf.setLocationRelativeTo(null);
-        supf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }                                    
-
-    private void loginMinMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
-        this.setState(JFrame.ICONIFIED);
-    }                                     
-
-    private void loginCloseMouseClicked(java.awt.event.MouseEvent evt) {                                        
-        // TODO add your handling code here:
-        System.exit(0);
-    }                                       
-
-    private void ButtonCancel1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void NewUser1MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
-        signupForm supf = new signupForm();
-        supf.setVisible(true);
-        supf.pack();
-        supf.setLocationRelativeTo(null);
-        supf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }                                     
-
-    private void loginMin1MouseClicked(java.awt.event.MouseEvent evt) {                                       
-        // TODO add your handling code here:
-        this.setState(JFrame.ICONIFIED);
-    }                                      
-
-    private void loginClose1MouseClicked(java.awt.event.MouseEvent evt) {                                         
-        // TODO add your handling code here:
+        //CLOSE UI
         System.exit(0);
     }                                        
 
-    private void loginMin2MouseClicked(java.awt.event.MouseEvent evt) {                                       
+    private void jLabelClose1MouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
+        //CLOSE UI
+        System.exit(0);
+    }                                         
+
+    private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        // TODO add your handling code here:
+        
+        //MINIMIZE UI
         this.setState(JFrame.ICONIFIED);
     }                                      
 
-    private void loginClose2MouseClicked(java.awt.event.MouseEvent evt) {                                         
+    private void jLabelCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {                                                 
         // TODO add your handling code here:
-        System.exit(0);
-    }                                        
-
-    private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-
-    }                                                  
-
-    private void FieldPassword2ActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
-    private void NewUser2MouseClicked(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
+        
+        //MOVE TO LOG UP FORM
         loginForm logf = new loginForm();
         logf.setVisible(true);
         logf.pack();
         logf.setLocationRelativeTo(null);
         logf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }                                     
 
-    private void ButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-        if(verifData()){
-            Connection con = myConnection.getConnection();
-            PreparedStatement ps;
-
-            try {
-                ps = con.prepareStatement("INSERT INTO `user`(`fname`, `lname`, `username`, `pass`, `pic`) VALUES (?,?,?,?,?)");
-                ps.setString(1, FieldFirstname.getText());
-                ps.setString(2, FieldLastname.getText());
-                ps.setString(3, FieldUsername.getText());
-                ps.setString(4, String.valueOf(FieldPassword1.getPassword()));
-
-                InputStream img = new FileInputStream(new File(imagePath));
-
-                ps.setBlob(5, img);
-
-                if(isUsernameExist(TextFieldUsername.getText())){
-                    JOptionPane.showMessageDialog(null, "Username Already Exists");
-
-                }
-                else{
-                    if(ps.executeUpdate() !=0){
-                        JOptionPane.showMessageDialog(null, "Account Successfully Created");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Recheck Input");
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.getLogger(signupForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }                                            
-
-    private void ButtonCreateMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        // TODO add your handling code here:
-    }                                         
-
-    private void ButtonCancel2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-
-        System.exit(0);
-    }                                             
-
-    private void FieldPassword1ActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
-    private void FieldFirstnameActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
-   public boolean isUsernameExist(String un){
+    }                                                
+    
+    public boolean isUserNameExist(String un)
+    {
+        
+        
+     //VALIDATION OF USERNAME AND PASSWORD FROM DATABASE
         boolean uExist = false;
         Connection con = myConnection.getConnection();
         PreparedStatement ps;
         ResultSet rs;
         
-        try{
-        ps = con.prepareStatement("SELECT * FROM `user` WHERE `username` = ? ");
-        ps.setString(1, FieldUsername.getText());
-
-        rs = ps.executeQuery();
-        
-        if(rs.next()){
+        try
+        {
+            
+        //FETCH DATA FROM DATABASE
+            
+            ps = con.prepareStatement("SELECT * FROM `user` WHERE `username` = ? AND `pass`=?");
+            ps.setString(1, jTextFieldUsername.getText());
+            ps.setString(2, String.valueOf(jPasswordField1.getPassword()));
+            rs = ps.executeQuery();
+            
+            if(rs.next())
+        {
             uExist = true;
-        
-        
         }
-        }catch (SQLException ex){
-        Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
-               
+        catch (SQLException ex)
+        {
+            Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return uExist;
+        }
     
-        return uExist;
     
+        //IMAGE RESIZE TO BE FIT IN UPLOAD FRAME
+//    public ImageIcon resizePic(String picPath){
+//        ImageIcon myImg = new ImageIcon(picPath);
+//        Image img = myImg.getImage().getScaledInstance(jLabelPic.getWidth(),jLabelPic.getHeight(),Image.SCALE_SMOOTH);
+//        ImageIcon myPicture = new ImageIcon(img);
+//        return myPicture;
+//    }
     
-    }
     
         
+    private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+        
+       Myfunc mf = new Myfunc();
+       imagePth = mf.browseImage(jLabelPic);
+  
+      
+    }                                                  
+
     public boolean verifData(){
-        //verify if fields are not empty
-        if(FieldFirstname.getText().equals("") && FieldLastname.getText().equals("") || FieldUsername.getText().equals("")
-                || String.valueOf(FieldPassword1.getPassword()).equals(""))
-        {   
-            JOptionPane.showMessageDialog(null,"Some Field are empty");
-        return false;
-    
-        //password should same
+        
+        //CHECKS IF ALL FIELDS ARE FILLED
+        
+        if(jTextFieldFName.getText().equals("") && jTextFieldLName.getText().equals("") || jTextFieldUsername.getText().equals("")
+        || String.valueOf(jPasswordField1.getPassword()).equals(""))
+        {
+         JOptionPane.showMessageDialog(null, "SOME FIELDS ARE EMPTY");   
+         return false;
         }
-    else if(!String.valueOf(FieldPassword1.getPassword()).equals(String.valueOf(FieldPassword2.getPassword()))){
         
-        JOptionPane.showMessageDialog(null,"Password are not same");
-        return false;
-    }
+        //CHECKS IF PASSWORD AND RETYPE PASSWORD FIELDS HAVE IDENTICAL DATA
+        else if(!String.valueOf(jPasswordField1.getPassword()).equals(String.valueOf(jPasswordField2.getPassword())))
+        { 
+         JOptionPane.showMessageDialog(null, "PASSWORDS ARE DIFFERENT");      
+         return false;
+        }
         
-            //if no image uploaded
-    else if(imagePath == null)
-    {
-        JOptionPane.showMessageDialog(null,"No Uploaded Image");
-    return false;
+        // IF NO IMAGE UPLOADED
+            else if(imagePth == null)
+        {
+         JOptionPane.showMessageDialog(null, "PLEASE UPLOAD AN IMAGE");   
+         return false;
+        }
+            
+        // ALL FIELDS AND IMAGE WERE FILLED
+            else
+        {
+            return true; 
+        }
+    
+    
     }
-            //if all data input is correct
     
-    else{
-    return true;
-    
-    
-    }
- 
-}
+    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+        if(verifData())
+        {
+        //Performing Connection
+        Connection con = myConnection.getConnection();
+        PreparedStatement ps;
+        
+            try {
+                ps = con.prepareStatement("INSERT INTO `user`(`fname`, `lname`, `username`, `pass`, `pic`) VALUES (?,?,?,?,?)");
+                
+                ps.setString(1, jTextFieldFName.getText());
+                ps.setString(2, jTextFieldLName.getText());
+                ps.setString(3, jTextFieldUsername.getText());
+                ps.setString(4, String.valueOf(jPasswordField1.getPassword()));
+              
+                InputStream img = new FileInputStream(new File(imagePth));
+                
+                ps.setBlob(5, img);
+        //CHECK IF USERNAME IS AVAILABLE TO USE       
+                if(isUserNameExist(jTextFieldUsername.getText()))
+                {
+                    JOptionPane.showMessageDialog(null, "USERNAME ALREADY IN USE");
+                }
+                else
+                {
+                    if(ps.executeUpdate()  !=0)
+                     {
+                        JOptionPane.showMessageDialog(null, "Account Successfully Created");
+                    
+                     }
+                    else
+                    {
+                    JOptionPane.showMessageDialog(null, "Incorrect Credentials");
+                    }
+                }
+                
+                
+            } catch (Exception ex) {
+                Logger.getLogger(signupForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+    }                                             
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+         System.exit(0);
+    }                                             
+
     /**
      * @param args the command line arguments
      */
@@ -685,25 +413,9 @@ public class signupForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton ButtonCancel;
-    private javax.swing.JButton ButtonCancel1;
-    private javax.swing.JButton ButtonCancel2;
-    private javax.swing.JButton ButtonCreate;
-    private javax.swing.JButton ButtonLogin;
-    private javax.swing.JButton ButtonLogin1;
-    private javax.swing.JTextField FieldFirstname;
-    private javax.swing.JTextField FieldLastname;
-    private javax.swing.JPasswordField FieldPassword1;
-    private javax.swing.JPasswordField FieldPassword2;
-    private javax.swing.JTextField FieldUsername;
-    private javax.swing.JLabel NewUser;
-    private javax.swing.JLabel NewUser1;
-    private javax.swing.JLabel NewUser2;
-    private javax.swing.JTextField TextFieldUsername;
-    private javax.swing.JTextField TextFieldUsername1;
     private javax.swing.JButton jButtonBrowseImage;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -711,21 +423,18 @@ public class signupForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelClose;
+    private javax.swing.JLabel jLabelClose1;
+    private javax.swing.JLabel jLabelCreateAccount;
+    private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel jLabelPic;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JLabel loginClose;
-    private javax.swing.JLabel loginClose1;
-    private javax.swing.JLabel loginClose2;
-    private javax.swing.JLabel loginMin;
-    private javax.swing.JLabel loginMin1;
-    private javax.swing.JLabel loginMin2;
+    private javax.swing.JTextField jTextFieldFName;
+    private javax.swing.JTextField jTextFieldLName;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration                   
 }
