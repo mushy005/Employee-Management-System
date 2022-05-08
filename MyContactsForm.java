@@ -1,5 +1,14 @@
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -37,25 +46,26 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabelMin = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelUserPic = new javax.swing.JLabel();
+        jLabelUsername = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextFieldUsername = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldUsername1 = new javax.swing.JTextField();
+        jTextFieldFname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldUsername2 = new javax.swing.JTextField();
-        jTextFieldUsername3 = new javax.swing.JTextField();
+        jTextFieldLname = new javax.swing.JTextField();
+        jTextFieldPhone = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboBoxGroup = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabelContactPic = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaAddress = new javax.swing.JTextArea();
         jButtonBrowseImage = new javax.swing.JButton();
+        jButtonAddContact = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,9 +92,9 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Contact");
 
-        jLabel2.setOpaque(true);
+        jLabelUserPic.setOpaque(true);
 
-        jLabel3.setText("Username:");
+        jLabelUsername.setText("Username:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,7 +102,7 @@ public class MyContactsForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelUserPic, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -101,7 +111,7 @@ public class MyContactsForm extends javax.swing.JFrame {
                         .addComponent(jLabelClose)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelUsername)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(412, 412, 412))))
@@ -113,7 +123,7 @@ public class MyContactsForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabelUserPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelMin)
@@ -121,7 +131,7 @@ public class MyContactsForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabelUsername))
                         .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -131,47 +141,47 @@ public class MyContactsForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextFieldEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsernameActionPerformed(evt);
+                jTextFieldEmailActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 220, 30));
+        jPanel2.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 220, 30));
 
         jLabel4.setText("Position");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jTextFieldUsername1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldUsername1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTextFieldUsername1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldFname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextFieldFname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jTextFieldFname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsername1ActionPerformed(evt);
+                jTextFieldFnameActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 220, 30));
+        jPanel2.add(jTextFieldFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 220, 30));
 
         jLabel5.setText("First Name:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-        jTextFieldUsername2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldUsername2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTextFieldUsername2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldLname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextFieldLname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jTextFieldLname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsername2ActionPerformed(evt);
+                jTextFieldLnameActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldUsername2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 220, 30));
+        jPanel2.add(jTextFieldLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 220, 30));
 
-        jTextFieldUsername3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextFieldUsername3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTextFieldUsername3.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPhone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextFieldPhone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsername3ActionPerformed(evt);
+                jTextFieldPhoneActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldUsername3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 220, 30));
+        jPanel2.add(jTextFieldPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 220, 30));
 
         jLabel6.setText("Last Name:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
@@ -179,8 +189,8 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabel7.setText("Phone");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barangay Captain", "Brgy. Kagawad", "Secretary", "Treasurer", "SK. Chairman" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 220, -1));
+        jComboBoxGroup.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barangay Captain", "Brgy. Kagawad", "Secretary", "Treasurer", "SK. Chairman" }));
+        jPanel2.add(jComboBoxGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 220, -1));
 
         jLabel8.setText("Email");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
@@ -194,9 +204,9 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabelContactPic.setOpaque(true);
         jPanel2.add(jLabelContactPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 180, 150));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaAddress.setColumns(20);
+        jTextAreaAddress.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaAddress);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 270, 140));
 
@@ -207,6 +217,18 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonBrowseImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, -1, -1));
+
+        jButtonAddContact.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAddContact.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAddContact.setText("Add");
+        jButtonAddContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jButtonAddContact.setBorderPainted(false);
+        jButtonAddContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddContactActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonAddContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, 80, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 860, 410));
 
@@ -227,21 +249,21 @@ public class MyContactsForm extends javax.swing.JFrame {
         System.exit(0);
     }                                        
 
-    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }                                                  
+    }                                               
 
-    private void jTextFieldUsername1ActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void jTextFieldFnameActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }                                                   
+    }                                               
 
-    private void jTextFieldUsername2ActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void jTextFieldLnameActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }                                                   
+    }                                               
 
-    private void jTextFieldUsername3ActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }                                                   
+    }                                               
 
     private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
@@ -252,6 +274,31 @@ public class MyContactsForm extends javax.swing.JFrame {
        
 
     }                                                  
+
+    private void jButtonAddContactActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+        
+        String fname = jTextFieldFname.getText();
+        String lname = jTextFieldLname.getText();
+        String phone = jTextFieldPhone.getText();
+        String address = jTextAreaAddress.getText();
+        String email = jTextFieldEmail.getText();
+        String groupc = jComboBoxGroup.getSelectedItem().toString();
+        byte[] img = null;
+        
+        try {
+               Path pth = Paths.get(imagePth);
+               img = Files.readAllBytes(pth);
+        } catch (FileNotFoundException ex){
+        Logger.getLogger(MyContactsForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex){
+        Logger.getLogger(MyContactsForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        contact c = new contact(null, fname, lname, groupc, phone, email, address, img, 0);    
+        contactQuery cq = new contactQuery();
+        cq.insertContact(c);
+        
+    }                                                 
 
     /**
      * @param args the command line arguments
@@ -289,12 +336,11 @@ public class MyContactsForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton jButtonAddContact;
     private javax.swing.JButton jButtonBrowseImage;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBoxGroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -304,13 +350,15 @@ public class MyContactsForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelContactPic;
     private javax.swing.JLabel jLabelMin;
+    public javax.swing.JLabel jLabelUserPic;
+    public javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldUsername;
-    private javax.swing.JTextField jTextFieldUsername1;
-    private javax.swing.JTextField jTextFieldUsername2;
-    private javax.swing.JTextField jTextFieldUsername3;
+    private javax.swing.JTextArea jTextAreaAddress;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldFname;
+    private javax.swing.JTextField jTextFieldLname;
+    private javax.swing.JTextField jTextFieldPhone;
     // End of variables declaration                   
 }
