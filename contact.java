@@ -9,7 +9,8 @@
  * @author Ordonez
  */
 public class contact {
-    private int cid;
+    
+    private Integer cid;
     private String fname;
     private String lname;
     private String groupc;
@@ -17,24 +18,34 @@ public class contact {
     private String email;
     private String address;
     private byte[] pic;
-    private int udi;
+    private int uid;
+
     
-    //Generate constructors of getters and setters
-    public contact() {
+    
+    public contact()
+    {
+    
+    
+    
+    
     }
+            
+    //CONSTRUCTORS
     
-    
-    
-    public contact(int cid, String fname, String phone, String email, String address, byte[] pic, int udi) {
+    public contact(Integer cid, String fname, String lname, String groupc, String email, String phone, String address, byte[] pic, int uid) {
         this.cid = cid;
         this.fname = fname;
-        this.phone = phone;
+        this.lname = lname;
+        this.groupc = groupc;
         this.email = email;
+        this.phone = phone;
         this.address = address;
         this.pic = pic;
-        this.udi = udi;
+        this.uid = uid;
     }
-
+    
+    //GETTERS AND SETTERS
+    
     public int getCid() {
         return cid;
     }
@@ -99,15 +110,15 @@ public class contact {
         this.pic = pic;
     }
 
-    public int getUdi() {
-        return udi;
+    public int getUid() {
+        return uid;
     }
 
-    public void setUdi(int udi) {
-        this.udi = udi;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
+    
     
     
     
 }
-
