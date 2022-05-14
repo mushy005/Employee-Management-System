@@ -273,14 +273,30 @@ public class loginForm extends javax.swing.JFrame {
             
         //FETCH DATA FROM DATABASE
             
-            ps = con.prepareStatement("SELECT * FROM `user` WHERE `username` = ? AND `pass`=?");
+            ps = con.prepareStatement("SELECT `username`, `pass`, `pic`, id FROM `user` WHERE `username` = ? AND `pass`=?");
             ps.setString(1, jTextFieldUsername.getText());
             ps.setString(2, String.valueOf(jPasswordField1.getPassword()));
             rs = ps.executeQuery();
             
             if(rs.next())
-        {
-            JOptionPane.showMessageDialog(null, "Logged In");   
+        {     
+            //FETCH CURRENT ID
+              MyContactsForm.currentUserId = rs.getInt("id");
+              System.out.println(rs.getInt("id")+"From Login");
+            //  
+              
+              MyContactsForm mcf = new MyContactsForm();
+              mcf.setVisible(true);
+              mcf.pack();
+              mcf.setLocationRelativeTo(null);
+              mcf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              
+              //PROFILE PIC TO BE SHOWN
+              mcf.jLabelUserPic.setIcon(new Myfunc().resizePic(null, rs.getBytes(3), mcf.jLabelUserPic.getWidth(), mcf.jLabelUserPic.getHeight()));
+              mcf.jLabelUsername.setText(rs.getString(1));
+              this.dispose();
+            
+            
         }
             else
          {
