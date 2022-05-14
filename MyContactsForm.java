@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 /*
@@ -86,11 +87,11 @@ public class MyContactsForm extends javax.swing.JFrame {
         jButtonDeleteContact = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButtonAddContact1 = new javax.swing.JButton();
+        jButtonAddContact = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jTextFieldFname = new javax.swing.JTextField();
         jTextFieldId = new javax.swing.JTextField();
-        jButtonEditContact1 = new javax.swing.JButton();
+        jButtonEditContact = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -229,17 +230,17 @@ public class MyContactsForm extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 34, 880, -1));
 
-        jButtonAddContact1.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonAddContact1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonAddContact1.setText("Add");
-        jButtonAddContact1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jButtonAddContact1.setBorderPainted(false);
-        jButtonAddContact1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddContact.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAddContact.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAddContact.setText("Add");
+        jButtonAddContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jButtonAddContact.setBorderPainted(false);
+        jButtonAddContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddContact1ActionPerformed(evt);
+                jButtonAddContactActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonAddContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 480, 80, 30));
+        jPanel2.add(jButtonAddContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 480, 80, 30));
 
         jLabel11.setText("Profile Picture");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
@@ -254,17 +255,17 @@ public class MyContactsForm extends javax.swing.JFrame {
         jPanel2.add(jTextFieldFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, 30));
         jPanel2.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 180, -1));
 
-        jButtonEditContact1.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonEditContact1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonEditContact1.setText("Edit");
-        jButtonEditContact1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jButtonEditContact1.setBorderPainted(false);
-        jButtonEditContact1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditContact.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonEditContact.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonEditContact.setText("Edit");
+        jButtonEditContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        jButtonEditContact.setBorderPainted(false);
+        jButtonEditContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditContact1ActionPerformed(evt);
+                jButtonEditContactActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonEditContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 80, 30));
+        jPanel2.add(jButtonEditContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,20 +358,13 @@ public class MyContactsForm extends javax.swing.JFrame {
     private void jButtonDeleteContactActionPerformed(java.awt.event.ActionEvent evt) {                                                     
          // TODO add your handling code here:
         
-        
         int id = Integer.valueOf(jTextFieldId.getText());
         contactQuery cq = new contactQuery();
         cq.deleteContact(id);
+                refreshJtable();
+
        
-        
-        
-        
-    
-        
-        
-        
-     
-        
+      
     }                                                    
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
@@ -394,7 +388,7 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabelContactPic.setIcon(img);
     }                                    
 
-    private void jButtonAddContact1ActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void jButtonAddContactActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
         String fname = jTextFieldFname.getText();
         String lname = jTextFieldLname.getText();
@@ -412,17 +406,28 @@ public class MyContactsForm extends javax.swing.JFrame {
         } catch (IOException ex){
         Logger.getLogger(MyContactsForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        contact c = new contact(null, fname, lname, groupc, phone, email, address, img, 0);    
+        contact c = new contact(null, fname, lname, groupc, phone, email, address, img, currentUserId);    
         contactQuery cq = new contactQuery();
         cq.insertContact(c);
+        refreshJtable();
         
-    }                                                  
-
+    }                                                 
+    
+    public void refreshJtable()
+    {
+        jTable1.setModel(new DefaultTableModel());
+        populateJtable();
+    
+    }
+    
+    
+    
+    
     private void jTextFieldFnameActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
     }                                               
 
-    private void jButtonEditContact1ActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void jButtonEditContactActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
         int id = Integer.valueOf(jTextFieldId.getText());
         String fname = jTextFieldFname.getText();
@@ -460,9 +465,10 @@ public class MyContactsForm extends javax.swing.JFrame {
                     contactQuery cq = new contactQuery();
                     cq.updateContact(c, false);
         }
+                refreshJtable();
+
         
-        
-    }                                                   
+    }                                                  
 
     /**
      * @param args the command line arguments
@@ -500,10 +506,10 @@ public class MyContactsForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButtonAddContact1;
+    private javax.swing.JButton jButtonAddContact;
     private javax.swing.JButton jButtonBrowseImage;
     private javax.swing.JButton jButtonDeleteContact;
-    private javax.swing.JButton jButtonEditContact1;
+    private javax.swing.JButton jButtonEditContact;
     private javax.swing.JComboBox jComboBoxGroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
