@@ -335,7 +335,7 @@ public class signupForm extends javax.swing.JFrame {
         PreparedStatement ps;
         
             try {
-                ps = con.prepareStatement("INSERT INTO `user`(`fname`, `lname`, `username`, `pass`, `pic`) VALUES (?,?,?,?,?)");
+                ps = con.prepareStatement("INSERT INTO `user` (`fname`, `lname`, `username`, `pass`, `pic`) VALUES (?,?,?,?,?)");
                 
                 ps.setString(1, jTextFieldFName.getText());
                 ps.setString(2, jTextFieldLName.getText());
