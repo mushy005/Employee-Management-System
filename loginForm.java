@@ -250,13 +250,8 @@ public class loginForm extends javax.swing.JFrame {
     private void jLabelCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {                                                 
         // TODO add your handling code here:
         
-        //MOVE TO SIGN UP FORM
-        signupForm supf = new signupForm();
-        supf.setVisible(true);
-        supf.pack();
-        supf.setLocationRelativeTo(null);
-        supf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+   
+      
         
     }                                                
 
@@ -273,36 +268,13 @@ public class loginForm extends javax.swing.JFrame {
             
         //FETCH DATA FROM DATABASE
             
-            ps = con.prepareStatement("SELECT `username`, `pass`, `pic`, id FROM `user` WHERE `username` = ? AND `pass`=?");
+            ps = con.prepareStatement("SELECT `username`=?");
             ps.setString(1, jTextFieldUsername.getText());
             ps.setString(2, String.valueOf(jPasswordField1.getPassword()));
             rs = ps.executeQuery();
             
             if(rs.next())
-        {     
-            //FETCH CURRENT ID
-              MyContactsForm.currentUserId = rs.getInt("id");
-              System.out.println(rs.getInt("id")+"From Login");
-            //  
-              
-              MyContactsForm mcf = new MyContactsForm();
-              mcf.setVisible(true);
-              mcf.pack();
-              mcf.setLocationRelativeTo(null);
-              mcf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              
-              //PROFILE PIC TO BE SHOWN
-              mcf.jLabelUserPic.setIcon(new Myfunc().resizePic(null, rs.getBytes(3), mcf.jLabelUserPic.getWidth(), mcf.jLabelUserPic.getHeight()));
-              mcf.jLabelUsername.setText(rs.getString(1));
-              this.dispose();
-            
-            
-        }
-            else
-         {
-             JOptionPane.showMessageDialog(null, "EITHER USERNAME OR PASSWORD ARE INCORRECT");   
-         }
-            
+      
         }
         catch (SQLException ex)
         {
